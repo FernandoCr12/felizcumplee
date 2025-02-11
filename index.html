@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="es"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Feliz Cumpleaños, Brithney</title> 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+  <style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        background: linear-gradient(to right, #ff9a9e, #fad0c4);
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background: #ff4081;
+        color: white;
+        padding: 15px;
+        font-size: 24px;
+        position: relative;
+    }
+    .menu-icon {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 30px;
+        cursor: pointer;
+        color: white;
+    }
+    .menu-content {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        background: #ff66b2;
+        transition: left 0.3s;
+        padding-top: 60px;
+        z-index: 1000;
+    }
+    .menu-content a {
+        display: block;
+        color: white;
+        padding: 15px;
+        text-decoration: none;
+        font-size: 18px;
+    }
+    .menu-content a:hover {
+        background: #ff3385;
+    }
+    .container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        margin-top: 20px;
+    }
+    h1 {
+        color: #ff4081;
+    }
+    .poem-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    .poem-section img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .subtitle {
+        font-size: 18px;
+        color: #ff4081;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    .image-section {
+        position: relative;
+        text-align: center;
+    }
+    .image-section img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    .button {
+        background: #ff4081;
+        color: white;
+        font-size: 18px;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        width: 80%;
+        margin: 10px auto;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s;
+    }
+    .button:hover {
+        background: #ff0066;
+        transform: scale(1.05);
+    }
+    footer {
+        margin-top: 20px;
+        font-size: 14px;
+        color: white;
+        background: #ff4081;
+        padding: 10px;
+    }
+    .heart {
+        position: absolute;
+        font-size: 2rem;
+        color: #f00;
+        animation: fall 4s ease-in infinite;
+    }
+
+    @keyframes fall {
+        0% {
+            top: -10%;
+            opacity: 1;
+        }
+        100% {
+            top: 100%;
+            opacity: 0;
+        }
+    }
+  </style> 
+ </head> 
+ <body onclick="hideMenu(event)"> 
+  <header> 
+   <div class="menu-icon" onclick="toggleMenu(event)">
+     ☰ 
+   </div> Feliz Cumpleaños, Brithney 
+  </header> 
+  <div class="menu-content" id="menu"> <a href="#inicio" onclick="toggleMenu(event)">Inicio</a> <a href="#dedicatorias" onclick="toggleMenu(event)">Dedicatorias</a> <a href="#mensajes" onclick="toggleMenu(event)">Mensajes</a> 
+  </div> 
+  
+
+<button onclick="toggleMusic()">Pausar/Reproducir Música</button>
+
+  <script>
+    window.onload = function() {
+        Swal.fire({
+            text: '  Los días se vuelven una bendición cuando nos rodeamos de personas que alegran nuestros mejores y peores momentos. En esos mejores momentos estás tú, y tú haces especial cada instante para mí. Hoy, en tu día, me siento agradecido por tu presencia en mi vida. Eres una alegría no solo para mí, sino también para todos los que te rodean. Saber que cada día crecemos y evolucionamos juntos es un regalo. Los momentos especiales se alargan, como este que celebramos hoy, y me llena de felicidad compartirlo contigo, con tu mamá, papá, hermanos, y con todos los que te queremos. Un año más de vida, y con cada uno de esos años, sé que seguimos compartiendo este viaje. Si no podemos estar juntos físicamente, me reconforta ver esa sonrisa que llevas hoy, que refleja toda la felicidad que compartimos. FELICIDADES, MI AMOR, por cada día de esfuerzo, por cada momento de sudor, esmero y dedicación que pones en todo lo que haces. Gracias por demostrarnos que hay un pedacito de cielo aquí con nosotros, en tu corazón. Te quiero muchísimo, y pido a Dios que inunde tu vida de fuerza, valentía y amor para siempre.🥰',
+            showCancelButton: false,
+            confirmButtonText: 'Gracias🥰',
+            allowOutsideClick: false,
+        }).then(function() {
+            // Lluvia de corazones
+            for (let i = 0; i < 30; i++) {
+                let heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.textContent = '❤️';
+                heart.style.left = Math.random() * window.innerWidth + 'px';
+                heart.style.animationDuration = (Math.random() * 1 + 1) + 's';
+                document.body.appendChild(heart);
+                setTimeout(() => {
+                    heart.remove();
+                }, 2000);
+            }
+        });
+    };
+
+
+    function mostrarMensaje(hora, mensaje, mensajeExtra) {
+        Swal.fire({
+            title: `Mensaje de las ${hora}`,
+            text: mensaje,
+            confirmButtonText: 'Te quiero 💖'
+        }).then(() => {
+            Swal.fire({
+                title: mensajeExtra,
+                timer: 3000,
+                showConfirmButton: false
+            });
+        });
+    }
+
+    function toggleMenu(event) {
+        event.stopPropagation();
+        const menu = document.getElementById('menu');
+        menu.style.left = menu.style.left === '0px' ? '-250px' : '0px';
+    }
+
+    function hideMenu(event) {
+        const menu = document.getElementById('menu');
+        if (menu.style.left === '0px' && !event.target.closest('.menu-content, .menu-icon')) {
+            menu.style.left = '-250px';
+        }
+    }
+  </script> 
+  <div class="container" id="inicio">  
+   <h1>!!Feliz cumpleaños, mi amor¡¡</h1> 
+   <div class="poem-section"> 
+    <img src="bri.png" alt="Brithney"> 
+    <p> Mi amor, en este día especial,<br> Mi vida, Hoy es un día tan especial, porque es el día en que el mundo tuvo la suerte de recibir a alguien tan increíble como tú. Cada día a tu lado se convierte en una aventura llena de amor, risas y recuerdos que guardo en lo más profundo de mi corazón. No hay palabras suficientes para describir lo agradecido que me siento por tenerte en mi vida, por compartir momentos tan hermosos y por tu amor incondicional. Tu valentía y tu ternura no tienen límites, eres un ser excepcional que ilumina mi camino, mi vida. Cada gesto, cada sonrisa, cada palabra que me dices me hace amarte más y más. Eres mi fuerza, mi calma, mi razón para ser mejor cada día. Hoy celebro no solo tu cumpleaños, sino el regalo más hermoso que la vida me ha dado: tú. Gracias por ser la persona que eres, por darme todo lo que soy capaz de recibir y más. Te amo más de lo que las palabras pueden expresar y te prometo que siempre estaré aquí, a tu lado, para seguir escribiendo juntos esta hermosa historia de amor. ¡Feliz cumpleaños, mi amor! 💖 --- Espero que le guste muchísimo, ¡seguro que le emocionará! <br> ¡Feliz cumpleaños, mi vida! 💖 </p> 
+   </div> 
+  </div> 
+  <div class="container" id="mensajes"> 
+   <h2>Dedicatorias</h2> <!-- Dedicatorias --> 
+   <div class="subtitle">
+     Mensaje de las 7 AM 
+   </div> 
+   <div class="image-section"> 
+    <img src="desayuno.png" alt="Desayuno romántico"> 
+   </div> <button class="button" onclick="mostrarMensaje('7 AM', 'Buenos días, amor! 🌞', 'Dios te bendiga mi princesa! <br> gracias por existir <br> en breve un pequeño regalo 😍')">Presióname</button> 
+   <div class="subtitle">
+     Mensaje de las 10 AM 
+   </div> 
+   <div class="image-section"> 
+    <img src="10am.png" alt="Mañana feliz"> 
+   </div> <button class="button" onclick="mostrarMensaje('10 AM', 'Mi princesa!. ❤️', 'Eres mi sol, las horas avanzan y te haces mas bella☀️ <br> te quiero como la vaca...')">Presióname</button> 
+   <div class="subtitle">
+     Mensaje de las 12 PM 
+   </div> 
+   <div class="image-section"> 
+    <img src="mediodia.png" alt="Almuerzo especial"> 
+   </div> <button class="button" onclick="mostrarMensaje('12 PM', 'te invito a enamorarnos, porque yo invito. <br> te apuesto un beso, a que vas a querer otro. 💕', '. 💖')">Presióname</button> 
+   <div class="subtitle">
+     Mensaje de las 3 PM 
+   </div> 
+   <div class="image-section"> 
+    <img src="tecito.png" alt="Tarde especial"> 
+   </div> <button class="button" onclick="mostrarMensaje('3 PM', 'Que tu tarde sea hermosa. 💖', ' gracias por existir. 💑')">Presióname</button> 
+   <div class="subtitle">
+     Mensaje de las 6 PM 
+   </div> 
+   <div class="image-section"> 
+    <img src="mediacena.png" alt="Atardecer romántico"> 
+   </div> <button class="button" onclick="mostrarMensaje('6 PM', 'algo corto, sencillo. 🌅', 'Sabia que no te aguantarias <br> Hoy te quiero mas que ayer, recuerda que eso no se olvida, ni se borra de mi <br> tiene que ser especial, y especial para mi tú, ya lo eres, espero te haya gustado <br> Unicamente voy a dejar de quererte, cuando tenga evidencias claras de que hay alguien que te quiere tan solo un poquito que yo <br>. comenze por extrañarte cuando no te veía, he comprobado que eres perfecta, que encajas a la perfeccion, con aquello que desde el fondo, siempre anhelé 😊')">Presióname</button> 
+   <div class="subtitle">
+     Mensaje de las 10 PM 
+   </div> 
+   <div class="image-section"> 
+    <img src="cena.png" alt="Noche estrellada"> 
+   </div> <button class="button" onclick="mostrarMensaje('10 PM', 'Cada día contigo es un regalo. 🌙', 'Imposible de despertar juntos cada dia pero se que nos levantamos pensandonos. <br> Dios sabe porque hizo una muchachita como tu en este mundo, y me trajo para conocerte, muchisimas feliciades mi amor, te deseo lo mejor en esta vida, eres estupenda, te quiero, y quiero que logres todo eso, por lo que luchas cada mañana, cuidate mi amor. TE QUIERO. 💞')">Presióname</button> 
+  </div> 
+  <footer> 
+   <p>¡Te amo muchísimo, Brithney! 💖</p> 
+  </footer> 
+ </body>
+</html>
